@@ -1,5 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ScreenProvider } from "./context/ScreenSizeContext";
+import { DragDropLayoutProvider } from "./context/DragDropLayoutContext";
+import { EmailTemplateProvider } from "./context/EmailTemplateContext";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,12 +22,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <ScreenProvider>
+      <DragDropLayoutProvider>
+        <EmailTemplateProvider>
+          <html lang="en">
+            <body
+              className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            >
+              {children}
+            </body>
+          </html>
+        </EmailTemplateProvider>
+      </DragDropLayoutProvider>
+    </ScreenProvider>
   );
 }
