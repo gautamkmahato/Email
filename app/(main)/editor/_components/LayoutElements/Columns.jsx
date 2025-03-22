@@ -1,73 +1,79 @@
-import { useState, useEffect } from "react";
+'use client'
+
+import { useDragDropLayout } from "@/app/context/DragDropLayoutContext";
+import { useEmailTemplate } from "@/app/context/EmailTemplateContext";
+import { useState } from "react";
 
 export default function Columns({ layout }) {
-    console.log("layout: ", layout);
-    
-    // Initialize the state for column properties with the default styles
-    const [columnProperties, setColumnProperties] = useState('p-2 border bg-gray-00');
-    const [columnsCount, setColumnsCount] = useState(0);  // Track the number of columns
-    const [dragState, setDragState] = useState();
 
-    // Handle column properties based on layout type
-    const handleColumnProperties = (column) => {
-        if (column === 'column-2') {
-            setColumnProperties('grid grid-cols-1 md:grid-cols-2 gap-1');
-            setColumnsCount(2);  // Set number of columns for column-2
-        } else if (column === 'column-3') {
-            setColumnProperties('grid grid-cols-1 md:grid-cols-3 gap-1');
-            setColumnsCount(3);  // Set number of columns for column-3
-        } else if (column === 'column-4') {
-            setColumnProperties('grid grid-cols-1 md:grid-cols-4 gap-1');
-            setColumnsCount(4);  // Set number of columns for column-4
-        } else {
-            setColumnProperties('p-2 border bg-gray-100');
-            setColumnsCount(0);  // No columns if not a grid layout
-        }
-    };
+    console.log(layout);
 
-    const handleDragOver = (e, index) =>{
+    // Initialize dragState with default values
+    const [dragState, setDragState] = useState({
+        columnIndex: null,
+        layoutId: null
+    });
+    const { emailTemplate, setEmailTemplate } = useEmailTemplate();
+    const { layoutItem, setLayoutItem } = useDragDropLayout();
+
+    // Handle drag over event
+    const handleDragOver = (e, index) => {
         e.preventDefault();
         setDragState({
-            index: index,
-            columnId: layout?.id
-        })
-        console.log("its element")
-    }
-    const handleDrop = (e) =>{
+            columnIndex: index,
+            layoutId: layout?.id 
+        });
+    };
+
+    // Handle drop event
+    const handleDropOver = (e) => {
         e.preventDefault();
-        console.log("item")
-    }
-    
+        const index = dragState?.columnIndex;
+        
+        // Find the correct layout and update it with the dragged element
+        setEmailTemplate(prevItems => prevItems.map(col => 
+            col?.id === layout?.id ? {
+                ...col,
+                [index]: layoutItem?.dragElement
+            } : col
+        ));
 
-    // Use useEffect to update column properties whenever the layout changes
-    useEffect(() => {
-        if (layout?.type) {
-            handleColumnProperties(layout.type);
-        }
-    }, [layout]); // Run whenever layout changes
+        // Reset dragState after drop
+        setDragState({
+            columnIndex: null,
+            layoutId: null
+        });
+    };
 
-    // Create default text for each column
-    const renderColumns = () => {
-        const columns = [];
-        for (let i = 1; i <= columnsCount; i++) {
-            columns.push(
-                <div key={i} className={`
-                        ${dragState.index === i && 'bg-amber-700' }
-                    `}
-                    onDragOver={(e, i) => handleDragOver(e,i)}
-                    onDrop={handleDrop}
-                >
-                    Column {i}
-                </div>
-            );
-        }
-        return columns;
+    // Helper function to get element component (use it to render actual components in columns)
+    const getElementComponent = (element) => {
+        // You can expand this function to return specific components based on the element's type
+        if (!element) return null;
+        return <div>{element?.type || 'Empty'}</div>; // Example to render the content of the drag element
+    };
+
+    // Calculate grid style based on the number of columns
+    const gridStyle = {
+        display: 'grid',
+        gridTemplateColumns: `repeat(${layout?.numberOfColumn}, 1fr)`, // Creates the columns dynamically
+        gap: '2px', // Adjust the gap between columns
     };
 
     return (
-        <div className={`${columnProperties}`}>
-            {/* Dynamically generate the columns */}
-            {renderColumns()}
+        <div className="p-1">
+            <div style={gridStyle}>
+                {Array.from({ length: layout?.numberOfColumn }).map((_, index) => (
+                    <div
+                        key={index}
+                        className={`border p-1 ${(index === dragState.columnIndex && dragState.layoutId) ? 'bg-amber-400' : ''}`}
+                        onDragOver={(e) => handleDragOver(e, index)} // Pass index properly
+                        onDrop={handleDropOver} // Handle drop event
+                    >
+                        {/* Render the component for the column (e.g., the dragged element) */}
+                        {getElementComponent(layout?.[index])}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

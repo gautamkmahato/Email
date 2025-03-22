@@ -2,7 +2,7 @@
 
 import { useDragDropLayout } from '@/app/context/DragDropLayoutContext';
 import Elements from '@/layout/Elements';
-import Layout from '@/layout/Layout';  // Import the Layout array
+import Layouts from '@/layout/Layouts';  // Import the Layout array
 import React from 'react';
 
 export default function EditorSidebar() {
@@ -10,7 +10,7 @@ export default function EditorSidebar() {
     const { layoutItem, setLayoutItem } = useDragDropLayout();
 
     const handleLayoutDragStart = (item) =>{
-        console.log(item);
+        //console.log(item);
         setLayoutItem({
             dragLayout: {
                 ...item,
@@ -31,11 +31,11 @@ export default function EditorSidebar() {
     return (
         <div className='p-4 bg-white'>
             {/* layout Section */}
-            <div>
+            <div className=''>
                 <h1 className='mb-4 font-bold text-lg'>Layout</h1>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>              
                     {/* Map over Layout data array */}
-                    {Layout.map((item, index) => (
+                    {Layouts.map((item, index) => (
                     <div key={index} 
                         className="flex flex-col items-center justify-center space-x-2 p-3 cursor-pointer border border-dashed rounded-xl hover:bg-amber-100"
                         draggable
@@ -47,8 +47,9 @@ export default function EditorSidebar() {
                     ))}
                 </div>
             </div>
+
             {/* Element Section */}
-            <div>
+            <div className=''>
                 <h1 className='mb-4 mt-4 font-bold text-lg'>Elements</h1>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                     {/* Map over Elements data array */}

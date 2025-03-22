@@ -3,7 +3,7 @@
 import { useDragDropLayout } from '@/app/context/DragDropLayoutContext';
 import { useEmailTemplate } from '@/app/context/EmailTemplateContext';
 import { useScreen } from '@/app/context/ScreenSizeContext';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Columns from './LayoutElements/Columns';
 
 export default function Canvas() {
@@ -14,22 +14,31 @@ export default function Canvas() {
 
     // Handle drag over event
     const handleDragOver = (e) => {
-        e.preventDefault(); // This is important to allow a drop
-        setDragState(true);  // Set dragState to true when dragging over
-        console.log('over...');
+        e.preventDefault();
+        setDragState(true);  
     };
 
     // Handle drop event
     const handleDrop = (e) => {
-        e.preventDefault(); // Prevent default behavior
-        setDragState(false); // Set dragState back to false after drop
-        const droppedItem = layoutItem?.dragLayout; // Get the dragged item data
-        console.log(droppedItem);
-        // Add your logic to handle what happens when an item is dropped here
-        if (droppedItem) {
-            setEmailTemplate((prev) => [...prev, droppedItem]);
+        e.preventDefault();
+        setDragState(false);
+        const droppedLayout = layoutItem?.dragLayout; // Get the dragged item data
+        if (droppedLayout) {
+            setEmailTemplate((prev) => [...prev, droppedLayout]);   // Add DroppedLayout to the EmailTemplate Array
         }
     };
+
+    const getColumnLayout = (layout) =>{
+        if(layout?.type === 'column'){
+            return <Columns layout={layout} />
+        }
+    }
+
+    useEffect(() =>{
+        console.log("==================================")
+        console.log(emailTemplate)
+        console.log("===================================")
+    }, [emailTemplate]);
 
     return (
         <>
@@ -39,12 +48,12 @@ export default function Canvas() {
                         ${screenSize === 'desktop' ? 'max-w-2xl' : 'max-w-md'}
                         ${dragState ? 'bg-amber-50 p-4' : 'bg-white'}  // Conditional class application
                     `}
-                    onDragOver={handleDragOver}  // Pass the function directly (no arrow function needed)
-                    onDrop={handleDrop}          // Pass the function directly (no arrow function needed)
+                    onDragOver={handleDragOver}  
+                    onDrop={handleDrop}          
                 >
                     {emailTemplate?.length > 0 ? emailTemplate.map((layout, index) => (
                         <div key={index}>
-                            <Columns layout={layout} />
+                            {getColumnLayout(layout)}
                         </div>
                     )) : <div>
                             <h1>Add Element</h1>
