@@ -5,11 +5,13 @@ import {
 
 export default [
     {
+        id: 'button-1',
         icon: RectangleEllipsis,
         label: 'Button',
         type: 'Button',
-        content: 'Sample Button',
+        content: 'Click',
         url: '#',
+        className: 'custom-button',
         style: {
             textAlign: 'center',
             backgroundColor: '#007bff',
@@ -20,39 +22,41 @@ export default [
             fontWeight: 'normal',
             borderRadius: '5px',
             border: 'none',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Added subtle shadow for elevation
-            textTransform: 'uppercase', // Making text uppercase
-            cursor: 'pointer', // Pointer cursor to show it's clickable
-            transition: 'background-color 0.3s ease, transform 0.3s ease', // Added smooth transition for hover effect
+            boxShadow: '',
+            textTransform: 'uppercase',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s ease, transform 0.3s ease',
         },
         outerStyle: {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '100%',
-            backgroundColor: '#f4f5f7', // Light background to contrast the button
-            padding: '10px',
+            display: '',
+            justifyContent: '',
+            alignItems: '',
+            width: '',
+            backgroundColor: '',
+            padding: '',
         }
     },
     {
+        id: 'text-1',
         icon: TextSelectionIcon,
         type: 'Text',
         label: 'Text',
-        textarea: 'Sample Text',
+        content: 'Sample Text',
+        className: 'custom-text',
         style: {
             backgroundColor: '#fff',
-            color: '#333333',
-            padding: '20px',
-            textAlign: 'center',
+            color: '#000000',
+            padding: '0px',
+            textAlign: '',
             fontSize: '22px',
             fontWeight: 'normal',
-            textTransform: 'uppercase',
-            letterSpacing: '0.5px', // Added letter spacing to give it a more polished feel
-            lineHeight: '1.5', // Added line height for better readability
-            fontFamily: "'Roboto', sans-serif", // Added font-family for a modern look
-            border: '1px solid #e0e0e0', // Subtle border to outline the text area
-            borderRadius: '8px', // Rounded corners
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Soft shadow for elevation
+            textTransform: '',
+            letterSpacing: '',
+            lineHeight: '',
+            fontFamily: "'Roboto', sans-serif",
+            border: '',
+            borderRadius: '',
+            boxShadow: '',
         },
         outerStyle: {
             backgroundColor: '#fff',
@@ -64,12 +68,14 @@ export default [
         }
     },
     {
+        id: 'image-1',
         icon: Image,
         type: 'Image',
         label: 'Image',
         imageUrl: "/image.png",
         alt: 'Image',
-        url: '#',
+        url: 'https://picsum.photos/seed/picsum/200/300',
+        className: 'custom-image',
         style: {
             backgroundColor: '#ffffff',
             padding: '10px',
@@ -77,9 +83,9 @@ export default [
             width: '80%',
             margin: '0px',
             borderRadius: '8px',
-            border: '2px solid #f2f2f2', // Added a border for image clarity
-            objectFit: 'cover', // Ensuring the image covers the space without distortion
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Elevated effect
+            border: '2px solid #f2f2f2',
+            objectFit: 'cover',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
         },
         outerStyle: {
             display: 'flex',
@@ -91,21 +97,23 @@ export default [
         }
     },
     {
+        id: 'logo-1',
         icon: Frame,
         type: 'Logo',
         label: 'Logo',
         imageUrl: "/logo.svg",
         alt: 'logo',
         url: '#',
+        className: 'custom-logo',
         style: {
             backgroundColor: '#ffffff',
             padding: '10px',
             height: '30%',
             width: '30%',
-            objectFit: 'contain', // Keeping the logo aspect ratio intact
-            borderRadius: '10px', // Rounded corners for a softer look
-            boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)', // Soft shadow to lift the logo
-            transition: 'transform 0.3s ease', // Smooth animation for hover effect
+            objectFit: 'contain',
+            borderRadius: '10px',
+            boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)',
+            transition: 'transform 0.3s ease',
         },
         outerStyle: {
             display: 'flex',
@@ -114,24 +122,26 @@ export default [
             backgroundColor: '#fff',
             width: '100%',
             padding: '10px',
-            cursor: 'pointer', // Pointer cursor for hover effect
+            cursor: 'pointer',
         }
     },
     {
+        id: 'logo-header-1',
         icon: PanelTop,
         type: 'LogoHeader',
         label: 'Logo Header',
         imageUrl: "/logo.svg",
         alt: 'logo',
         url: '#',
+        className: 'custom-logo-header',
         style: {
             backgroundColor: '#ffffff',
             padding: '12px',
             height: '50%',
             width: '50%',
             borderRadius: '12px',
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow for better appearance
-            transition: 'all 0.3s ease', // Smooth transition for scaling
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            transition: 'all 0.3s ease',
         },
         outerStyle: {
             display: 'flex',
@@ -143,22 +153,26 @@ export default [
         }
     },
     {
+        id: 'divider-1',
         icon: SquareSplitVertical,
         type: 'Divider',
         label: 'Divider',
         content: '',
+        className: 'custom-divider',
         style: {
             color: '#000000',
             padding: '15px',
             width: '100%',
-            borderTop: '2px solid #e0e0e0', // Divider line added
-            margin: '20px 0', // Added margin for spacing between elements
+            borderTop: '2px solid #e0e0e0',
+            margin: '20px 0',
         }
     },
     {
+        id: 'social-icons-1',
         type: 'SocialIcons',
         icon: Twitter,
         label: 'Social Icons',
+        className: 'custom-social-icons',
         socialIcons: [
             {
                 icon: 'https://cdn-icons-png.flaticon.com/128/2111/2111463.png',
@@ -191,11 +205,11 @@ export default [
             width: 40,
             height: 40,
             borderRadius: '50%',
-            border: '2px solid #ffffff', // White border to make icons pop
-            backgroundColor: '#1da1f2', // Blue background for the Twitter icon
-            boxShadow: '0 3px 8px rgba(0, 0, 0, 0.2)', // Light shadow to elevate the icons
-            transition: 'transform 0.3s ease', // Smooth hover animation
-            margin: '5px', // Slight space between the icons
+            border: '2px solid #ffffff',
+            backgroundColor: '#1da1f2',
+            boxShadow: '0 3px 8px rgba(0, 0, 0, 0.2)',
+            transition: 'transform 0.3s ease',
+            margin: '5px',
         },
         outerStyle: {
             display: 'flex',

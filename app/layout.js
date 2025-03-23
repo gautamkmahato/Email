@@ -3,6 +3,7 @@ import "./globals.css";
 import { ScreenProvider } from "./context/ScreenSizeContext";
 import { DragDropLayoutProvider } from "./context/DragDropLayoutContext";
 import { EmailTemplateProvider } from "./context/EmailTemplateContext";
+import { SelectedElementProvider } from "./context/SelectedElement";
 
 
 const geistSans = Geist({
@@ -25,13 +26,15 @@ export default function RootLayout({ children }) {
     <ScreenProvider>
       <DragDropLayoutProvider>
         <EmailTemplateProvider>
-          <html lang="en">
-            <body
-              className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
-              {children}
-            </body>
-          </html>
+          <SelectedElementProvider>
+            <html lang="en">
+              <body
+                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+              >
+                {children}
+              </body>
+            </html>
+          </SelectedElementProvider>
         </EmailTemplateProvider>
       </DragDropLayoutProvider>
     </ScreenProvider>

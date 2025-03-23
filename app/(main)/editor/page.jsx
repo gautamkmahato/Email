@@ -1,10 +1,12 @@
-import React from 'react'
+
 import EditorHeader from './_components/EditorHeader'
 import EditorSidebar from './_components/EditorSidebar'
 import Canvas from './_components/Canvas'
-import Settings from './_components/Settings'
+import Settings from './_components/SettingSidebar'
+
 
 export default function Editor() {
+
     return (
         <>
             <EditorHeader />

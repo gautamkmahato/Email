@@ -24,7 +24,7 @@ export default function Canvas() {
         setDragState(false);
         const droppedLayout = layoutItem?.dragLayout; // Get the dragged item data
         if (droppedLayout) {
-            setEmailTemplate((prev) => [...prev, droppedLayout]);   // Add DroppedLayout to the EmailTemplate Array
+            setEmailTemplate((prev) => [...(prev || []), droppedLayout]); // Safe spread
         }
     };
 
