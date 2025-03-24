@@ -36,7 +36,7 @@ export default function Settings() {
     
         // Update the email template with the new element data
         const updatedTemplate = emailTemplate.map((col) => {
-            if (col.id === selectedElement.layoutId) {
+            if (col?.id === selectedElement?.layoutId) {
                 return {
                     ...col,
                     [selectedElement.columnIndex]: col[selectedElement.columnIndex].map((el, idx) => {
@@ -72,7 +72,7 @@ export default function Settings() {
     
         // Update the email template with the new element data
         const updatedTemplate = emailTemplate.map((col) => {
-            if (col.id === selectedElement.layoutId) {
+            if (col?.id === selectedElement?.layoutId) {
                 return {
                     ...col,
                     [selectedElement.columnIndex]: col[selectedElement.columnIndex].map((el, idx) => {

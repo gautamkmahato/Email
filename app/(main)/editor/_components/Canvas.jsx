@@ -3,14 +3,19 @@
 import { useDragDropLayout } from '@/app/context/DragDropLayoutContext';
 import { useEmailTemplate } from '@/app/context/EmailTemplateContext';
 import { useScreen } from '@/app/context/ScreenSizeContext';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Columns from './LayoutElements/Columns';
+import { useHtmlContext } from '@/app/context/HtmlContentContext';
 
 export default function Canvas() {
+    const [dragState, setDragState] = useState(false);
+
     const { screenSize } = useScreen();
     const { layoutItem, setLayoutItem } = useDragDropLayout();
     const { emailTemplate, setEmailTemplate } = useEmailTemplate();
-    const [dragState, setDragState] = useState(false);
+    const { htmlContent, setHtmlContent } = useHtmlContext();
+
+    const htmlRef = useRef('')
 
     // Handle drag over event
     const handleDragOver = (e) => {
@@ -34,11 +39,22 @@ export default function Canvas() {
         }
     }
 
+    const getHtmlContent = () =>{
+        if(htmlRef.current){
+            const content = htmlRef.current.innerHTML;
+            console.log(content)
+            setHtmlContent(content);
+        }
+    }
+
     useEffect(() =>{
         console.log("==================================")
         console.log(emailTemplate)
         console.log("===================================")
+        getHtmlContent();
     }, [emailTemplate]);
+
+
 
     return (
         <>
@@ -49,7 +65,8 @@ export default function Canvas() {
                         ${dragState ? 'bg-amber-50 p-4' : 'bg-white'}  // Conditional class application
                     `}
                     onDragOver={handleDragOver}  
-                    onDrop={handleDrop}          
+                    onDrop={handleDrop} 
+                    ref={htmlRef}         
                 >
                     {emailTemplate?.length > 0 ? emailTemplate.map((layout, index) => (
                         <div key={index}>
@@ -60,6 +77,7 @@ export default function Canvas() {
                         </div>}
                 </div>
             </div>
+
         </>
     );
 }
