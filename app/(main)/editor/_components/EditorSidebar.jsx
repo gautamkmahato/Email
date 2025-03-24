@@ -37,7 +37,7 @@ export default function EditorSidebar() {
                     {/* Map over Layout data array */}
                     {Layouts.map((item, index) => (
                     <div key={index} 
-                        className="flex flex-col items-center justify-center space-x-2 p-3 cursor-pointer border border-dashed rounded-xl hover:bg-amber-100"
+                        className="flex flex-col items-center justify-center space-x-2 p-3 shadow-lg cursor-pointer border border-dashed rounded-xl hover:bg-amber-100"
                         draggable
                         onDragStart={() => handleLayoutDragStart(item)}
                     >
@@ -55,7 +55,7 @@ export default function EditorSidebar() {
                     {/* Map over Elements data array */}
                     {Elements.map((item, index) => (
                     <div key={index} 
-                        className="flex flex-col items-center justify-center space-x-2 p-3 cursor-pointer border border-dashed rounded-xl hover:bg-amber-100"
+                        className="flex flex-col items-center justify-center space-x-2 p-3 shadow-md cursor-pointer border border-dashed rounded-xl hover:bg-amber-100"
                         draggable
                         onDragStart={() => handleElementDragStart(item)}
                     >

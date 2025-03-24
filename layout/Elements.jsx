@@ -2,6 +2,7 @@ import {
     Columns2, Facebook, Frame, Framer, Image, Link2, PanelTop, Projector, RectangleEllipsis, 
     SquareSplitVertical, Text, TextSelectionIcon, Twitter 
 } from "lucide-react";
+import placeholder from '../public/placeholder.jpg';
 
 export default [
     {
@@ -17,6 +18,7 @@ export default [
             backgroundColor: '#007bff',
             color: '#ffffff',
             padding: '12px 25px',
+            margin: '0px',
             width: 'auto',
             fontSize: '16px',
             fontWeight: 'normal',
@@ -47,6 +49,7 @@ export default [
             backgroundColor: '#fff',
             color: '#000000',
             padding: '0px',
+            margin: '0px',
             textAlign: '',
             fontSize: '22px',
             fontWeight: 'normal',
@@ -72,7 +75,7 @@ export default [
         icon: Image,
         type: 'Image',
         label: 'Image',
-        imageUrl: "/image.png",
+        imageUrl: '/placeholder.jpg',
         alt: 'Image',
         url: 'https://picsum.photos/seed/picsum/200/300',
         className: 'custom-image',
@@ -80,7 +83,7 @@ export default [
             backgroundColor: '#ffffff',
             padding: '10px',
             height: 'auto',
-            width: '80%',
+            width: '100%',
             margin: '0px',
             borderRadius: '8px',
             border: '2px solid #f2f2f2',
@@ -108,6 +111,7 @@ export default [
         style: {
             backgroundColor: '#ffffff',
             padding: '10px',
+            margin: '0px',
             height: '30%',
             width: '30%',
             objectFit: 'contain',
@@ -137,6 +141,7 @@ export default [
         style: {
             backgroundColor: '#ffffff',
             padding: '12px',
+            margin: '0px',
             height: '50%',
             width: '50%',
             borderRadius: '12px',

@@ -1,7 +1,7 @@
 'use client'
 
 import { useScreen } from '@/app/context/ScreenSizeContext';
-import { Menu, Search, Bell, MonitorCheck, RectangleVertical, Code, Save } from 'lucide-react';
+import { Menu, Search, Bell, MonitorCheck, RectangleVertical, Code, Save, Airplay } from 'lucide-react';
 
 const EditorHeader = () => {
   const {screenSize, setScreenSize} = useScreen();

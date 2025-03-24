@@ -7,6 +7,7 @@ import { useEmailTemplate } from '@/app/context/EmailTemplateContext';
 import DropdownSelect from './Settings/DropdownSelect';
 import ColorPicker from './Settings/ColorPicker';
 import Slider from './Settings/Slider';
+import ImagePreview from './Settings/ImagePreview';
 
 export default function Settings() {
     const { selectedElement, setSelectedElement } = useSelectedElement();
@@ -30,9 +31,9 @@ export default function Settings() {
                 [field]: value 
             }
         };
-
+    
         setSelectedElement(updatedElement); // Update the selectedElement in context
-
+    
         // Update the email template with the new element data
         const updatedTemplate = emailTemplate.map((col) => {
             if (col.id === selectedElement.layoutId) {
@@ -48,33 +49,27 @@ export default function Settings() {
             }
             return col;
         });
-
+    
         setEmailTemplate(updatedTemplate); // Update the emailTemplate context
-    }
+    };
 
     const handleStyleChange = (value, field) => {
-        const fields = field.split('.'); // Split the field path into parts (e.g., 'style.fontSize' becomes ['style', 'fontSize'])
-
+        const fields = field.split('.'); // Split the field path into parts (e.g., 'style.width')
+    
         // Create a deep copy of the selectedElement to avoid mutating the state directly
-        let updatedElement;
-        if (fields[1] === 'fontSize' || fields[1] === 'padding' || fields[1] === 'borderRadius') {
-            // Ensure the values are updated with px unit for these fields
-            value = `${value}px`;
-        }
-
-        updatedElement = { 
+        const updatedElement = { 
             ...selectedElement,
             element: { 
                 ...selectedElement.element,
                 [fields[0]]: {
                     ...selectedElement.element[fields[0]],
-                    [fields[1]]: value
+                    [fields[1]]: value // Set the value directly (e.g., '100%')
                 }
             }
         };
-
+    
         setSelectedElement(updatedElement); // Update the selectedElement in context
-
+    
         // Update the email template with the new element data
         const updatedTemplate = emailTemplate.map((col) => {
             if (col.id === selectedElement.layoutId) {
@@ -90,9 +85,9 @@ export default function Settings() {
             }
             return col;
         });
-
+    
         setEmailTemplate(updatedTemplate); // Update the emailTemplate context
-    }
+    };
 
     const renderCommonAttributes = () => {
         if (!data) return null;
@@ -100,15 +95,31 @@ export default function Settings() {
         return (
             <>
                 {/* Common attributes for all elements */}
+                {data?.content && <InputField 
+                    label="Text" 
+                    value={data.content} 
+                    onChange={(e) => handleInputChange(e.target.value, 'content')} 
+                />}
                 <ColorPicker 
                     label="Background Color" 
                     value={data.style?.backgroundColor || '#ffffff'} 
                     onChange={(e) => handleStyleChange(e.target.value, 'style.backgroundColor')} 
                 />
+                {data.style?.color && <ColorPicker 
+                    label="Color" 
+                    value={data.style?.color || '#ffffff'} 
+                    onChange={(e) => handleStyleChange(e.target.value, 'style.color')} 
+                />}
                 <Slider 
                     label="Padding" 
                     value={parseInt(data.style?.padding || 0)} 
                     onChange={(e) => handleStyleChange(e, 'style.padding')} 
+                    min={0} max={50}
+                />
+                <Slider 
+                    label="Margin" 
+                    value={parseInt(data.style?.margin || 0)} 
+                    onChange={(e) => handleStyleChange(e, 'style.margin')} 
                     min={0} max={50}
                 />
                 <Slider 
@@ -128,15 +139,15 @@ export default function Settings() {
             case 'Button':
                 return (
                     <>
-                        <InputField 
-                            label="Button Text" 
-                            value={data.content} 
-                            onChange={(e) => handleInputChange(e.target.value, 'content')} 
-                        />
-                        <ColorPicker 
-                            label="Text Color" 
-                            value={data.style?.color || '#ffffff'} 
-                            onChange={(e) => handleStyleChange(e.target.value, 'style.color')} 
+                        <Slider
+                            label="Width"
+                            value={data.style?.width === 'auto' || isNaN(parseInt(data.style?.width, 10)) ? 50 : parseInt(data.style?.width, 10)} // Default to 50 if invalid
+                            onChange={(value) => {
+                                const newWidth = value === 100 ? '100%' : `${value}%`; // Convert to percentage
+                                handleStyleChange(newWidth, 'style.width'); // Update width value
+                            }}
+                            min={1}
+                            max={100}
                         />
                         <Slider 
                             label="Font Size" 
@@ -183,11 +194,6 @@ export default function Settings() {
             case 'Text':
                 return (
                     <>
-                        <InputField 
-                            label="Text Content" 
-                            value={data.content} 
-                            onChange={(e) => handleInputChange(e.target.value, 'content')} 
-                        />
                         <Slider 
                             label="Font Size" 
                             value={parseInt(data.style?.fontSize || 22)} 
@@ -211,17 +217,27 @@ export default function Settings() {
                             onChange={(e) => handleStyleChange(e.target.value, 'style.fontWeight')}
                             options={['bold', '600', 'normal', 'bolder']}
                         />
-                        <ColorPicker 
-                            label="Text Color" 
-                            value={data.style?.color || '#000000'} 
-                            onChange={(e) => handleStyleChange(e.target.value, 'style.color')} 
-                        />
                     </>
                 );
 
             case 'Image':
                 return (
                     <>
+                        <Slider
+                            label="Width"
+                            value={data.style?.width === 'auto' || isNaN(parseInt(data.style?.width, 10)) ? 50 : parseInt(data.style?.width, 10)} // Default to 50 if invalid
+                            onChange={(value) => {
+                                const newWidth = value === 100 ? '100%' : `${value}%`; // Convert to percentage
+                                handleStyleChange(newWidth, 'style.width'); // Update width value
+                            }}
+                            min={1}
+                            max={100}
+                        />
+                        <ImagePreview
+                            label="Image Preview"
+                            value={data?.imageUrl} // Pass the current image URL
+                            onChange={(e) => handleInputChange(e.target.value, 'imageUrl')} // Update the image URL in state
+                        />
                         <InputField 
                             label="Image URL" 
                             value={data.imageUrl} 
@@ -231,12 +247,6 @@ export default function Settings() {
                             label="Alt Text" 
                             value={data.alt} 
                             onChange={(e) => handleInputChange(e.target.value, 'alt')} 
-                        />
-                        <Slider 
-                            label="Width" 
-                            value={parseInt(data.style?.width || 80)} 
-                            onChange={(e) => handleStyleChange(e, 'style.width')} 
-                            min={0} max={100}
                         />
                         <ColorPicker 
                             label="Border Color" 
@@ -254,11 +264,15 @@ export default function Settings() {
                             value={data.imageUrl} 
                             onChange={(e) => handleInputChange(e.target.value, 'imageUrl')} 
                         />
-                        <Slider 
-                            label="Width" 
-                            value={parseInt(data.style?.width || 30)} 
-                            onChange={(e) => handleStyleChange(e, 'style.width')} 
-                            min={10} max={100}
+                        <Slider
+                            label="Width"
+                            value={data.style?.width === 'auto' || isNaN(parseInt(data.style?.width, 10)) ? 50 : parseInt(data.style?.width, 10)} // Default to 50 if invalid
+                            onChange={(value) => {
+                                const newWidth = value === 100 ? '100%' : `${value}%`; // Convert to percentage
+                                handleStyleChange(newWidth, 'style.width'); // Update width value
+                            }}
+                            min={1}
+                            max={100}
                         />
                         <Slider 
                             label="Height" 
@@ -277,11 +291,15 @@ export default function Settings() {
                             value={data.imageUrl} 
                             onChange={(e) => handleInputChange(e.target.value, 'imageUrl')} 
                         />
-                        <Slider 
-                            label="Width" 
-                            value={parseInt(data.style?.width || 50)} 
-                            onChange={(e) => handleStyleChange(e, 'style.width')} 
-                            min={10} max={100}
+                        <Slider
+                            label="Width"
+                            value={data.style?.width === 'auto' || isNaN(parseInt(data.style?.width, 10)) ? 50 : parseInt(data.style?.width, 10)} // Default to 50 if invalid
+                            onChange={(value) => {
+                                const newWidth = value === 100 ? '100%' : `${value}%`; // Convert to percentage
+                                handleStyleChange(newWidth, 'style.width'); // Update width value
+                            }}
+                            min={1}
+                            max={100}
                         />
                         <Slider 
                             label="Height" 
@@ -350,7 +368,7 @@ export default function Settings() {
 
     return (
         <div className='bg-white p-4'>
-            <h1 className='font-semibold text-lg'>Settings</h1>
+            <h1 className='font-semibold text-lg mb-2'>Settings</h1>
             {data ? (
                 <>
                     {renderCommonAttributes()}

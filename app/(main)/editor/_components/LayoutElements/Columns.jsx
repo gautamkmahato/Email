@@ -67,7 +67,14 @@ export default function Columns({ layout }) {
     const gridStyle = {
         display: 'grid',
         gridTemplateColumns: `repeat(${layout?.numberOfColumn}, 1fr)`, // Creates the columns dynamically
-        gap: '2px', // Adjust the gap between columns
+        gap: '0px', // Adjust the gap between columns
+    };
+
+    // Set the default height for the columns and allow it to grow based on content
+    const columnStyle = {
+        minHeight: '50px', // Set default height (adjust as needed)
+        height: 'auto',     // Allow the column to grow based on content
+        overflow: 'hidden', // Prevent overflow of content, adjust as necessary
     };
 
     // Helper function to handle selection of elements
@@ -81,30 +88,36 @@ export default function Columns({ layout }) {
     };
 
     return (
-        <div className="p-1">
+        <div className="">
             <div style={gridStyle}>
                 {Array.from({ length: layout?.numberOfColumn }).map((_, columnIndex) => (
                     <div
                         key={columnIndex}
-                        className={`border p-1 
-                            ${(columnIndex === dragState.columnIndex && dragState.layoutId) ? 'bg-amber-400' : ''}`
-                        }
+                        className={`${(columnIndex === dragState.columnIndex && dragState.layoutId) ? 'bg-gray-200' : ''}`}
                         onDragOver={(e) => handleDragOver(e, columnIndex)} 
                         onDrop={handleDropOver}
+                        style={columnStyle} // Apply the style with default height
                     >
                         {/* Render the components inside each column */}
-                        {layout?.[columnIndex]?.map((element, elementIndex) => (
-                            <div 
-                                key={elementIndex} 
-                                className={`m-1 cursor-pointer 
-                                    ${selectedElement?.layoutId === layout?.id && 
-                                      selectedElement?.columnIndex === columnIndex && 
-                                      selectedElement?.elementIndex === elementIndex ? 'border-4 border-blue-500' : ''}`} // Conditionally add blue border
-                                onClick={() => handleElementClick(element, columnIndex, elementIndex)} // Pass column index and element index only
-                            >
-                                {getElementComponent(element)} {/* Render each element in the column */}
+                        {layout?.[columnIndex]?.length > 0 ? (
+                            layout[columnIndex].map((element, elementIndex) => (
+                                <div 
+                                    key={elementIndex} 
+                                    className={`m-1 cursor-pointer 
+                                        ${selectedElement?.layoutId === layout?.id && 
+                                        selectedElement?.columnIndex === columnIndex && 
+                                        selectedElement?.elementIndex === elementIndex ? 'border-4 border-blue-500' : ''}`} // Conditionally add blue border
+                                    onClick={() => handleElementClick(element, columnIndex, elementIndex)} // Pass column index and element index only
+                                >
+                                    {getElementComponent(element)} {/* Render each element in the column */}
+                                </div>
+                            ))
+                        ) : (
+                            // Show a placeholder message if the column is empty
+                            <div className="flex items-center justify-center h-full text-gray-500">
+                                No Elements
                             </div>
-                        ))}
+                        )}
                     </div>
                 ))}
             </div>
