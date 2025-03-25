@@ -5,6 +5,8 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import Card from './_components/Card';
 import { Plus } from 'lucide-react';
+import LoadingSpinner from '@/app/_components/LoadingSpinner';
+
 
 export default function Dashboard() {
 
@@ -30,7 +32,7 @@ export default function Dashboard() {
     if(loading){
         return(
             <>
-                <h1>Loading...</h1>
+                <LoadingSpinner />
             </>
         )
     }

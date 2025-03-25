@@ -8,6 +8,7 @@ import Settings from "../_components/SettingSidebar";
 import { useEffect, useState } from "react";
 import fetchContent from "@/app/action/fetchContent";
 import { useEmailTemplate } from "@/app/context/EmailTemplateContext";
+import LoadingSpinner from "@/app/_components/LoadingSpinner";
 
 
 export default function Editor() {
@@ -29,13 +30,13 @@ export default function Editor() {
         getData();
     }, []);
 
-    if(loading){
-        return(
-            <>
-                <h1>Loading...</h1>
-            </>
-        )
-    }
+    // if(loading){
+    //     return(
+    //         <>
+    //             <h1>Loading...</h1>
+    //         </>
+    //     )
+    // }
 
     return (
         <>
@@ -43,7 +44,7 @@ export default function Editor() {
             <div className='mt-4 bg-gray-100 grid grid-cols-5'>
                 <EditorSidebar />
                 <div className='col-span-3'>
-                    <Canvas />
+                    {!loading ? <Canvas /> : <LoadingSpinner />}
                 </div>
                 <Settings />
             </div>
