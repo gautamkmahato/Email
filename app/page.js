@@ -77,19 +77,6 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="w-full flex justify-center items-center animate-moveLeftRight">
-        <div className="relative">
-          {/* Animation container */}
-          <div className="absolute w-full h-full animate-moveLeftRight">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtnvAOajH9gS4C30cRF7rD_voaTAKly2Ntaw&s" // Replace with the actual logo URL
-              alt="Trusted Partner"
-              className="mx-auto"
-            />
-          </div>
-        </div>
-      </div>
-
       {/* Features Section */}
       <section id="features" className="p-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -301,7 +288,7 @@ export default function Home() {
       </section>
 
       {/* Demo Section */}
-      <section id="demo" className="p-16">
+      <section id="demo" className="p-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
             <h2 className="text-3xl font-extrabold text-neutral-900 tracking-tight sm:text-4xl">
@@ -331,7 +318,7 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="p-16 bg-gray-50">
+      <section className="p-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
             <h2 className="text-base text-amber-600 font-semibold tracking-wide uppercase">How it works</h2>
@@ -403,65 +390,65 @@ export default function Home() {
       <section id="testimonials" className="p-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
-            <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Testimonials</h2>
+            <h2 className="text-base text-amber-600 font-semibold tracking-wide uppercase">Testimonials</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               What our customers say
             </p>
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div className="bg-gray-50 p-6 rounded-lg">
+            <div className="bg-amber-50 shadow-lg p-6 rounded-lg">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <div className="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                    <span className="text-indigo-600 font-medium">JD</span>
+                  <div className="h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center">
+                    <span className="text-amber-600 font-medium">JD</span>
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-sm font-medium text-gray-900">John Doe</h3>
+                  <h3 className="text-md font-bold text-gray-900">John Doe</h3>
                   <p className="text-sm text-gray-500">Marketing Director, Acme Inc</p>
                 </div>
               </div>
               <div className="mt-4">
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm">
                   "MailCraft has revolutionized our email marketing. The drag-and-drop builder saves us hours of design time, and the analytics help us optimize our campaigns like never before."
                 </p>
               </div>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg">
+            <div className="bg-amber-50 shadow-lg p-6 rounded-lg">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <div className="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                    <span className="text-indigo-600 font-medium">AS</span>
+                  <div className="h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center">
+                    <span className="text-amber-600 font-medium">AS</span>
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-sm font-medium text-gray-900">Alice Smith</h3>
+                  <h3 className="text-md font-bold text-gray-900">Alice Smith</h3>
                   <p className="text-sm text-gray-500">CEO, Globex Corp</p>
                 </div>
               </div>
               <div className="mt-4">
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm">
                   "The AI-powered email replies feature alone is worth the subscription. It handles 80% of our customer service emails with perfect tone and accuracy."
                 </p>
               </div>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg">
+            <div className="bg-amber-50 shadow-lg p-6 rounded-lg">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <div className="h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                    <span className="text-indigo-600 font-medium">RJ</span>
+                  <div className="h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center">
+                    <span className="text-amber-600 font-medium">RJ</span>
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-sm font-medium text-gray-900">Robert Johnson</h3>
+                  <h3 className="text-md font-bold text-gray-900">Robert Johnson</h3>
                   <p className="text-sm text-gray-500">Founder, StartupXYZ</p>
                 </div>
               </div>
               <div className="mt-4">
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm">
                   "As a small business, we needed professional-looking emails without a designer. MailCraft's templates make our newsletters look like they were created by a pro agency."
                 </p>
               </div>
@@ -471,7 +458,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="p-16 bg-gray-50">
+      <section id="pricing" className="p-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
             <h2 className="text-base text-amber-600 font-semibold tracking-wide uppercase">Pricing</h2>
