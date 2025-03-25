@@ -66,7 +66,7 @@ export default function Dashboard() {
                                     alt="placeholder"
                                     className="mx-auto mb-4 w-64 h-64"
                                 />
-                                <h1 className="text-2xl font-semibold text-gray-700">No Templates Available</h1>
+                                <h1 className="text-2xl font-semibold text-gray-700">No Templates Available.</h1>
                             </div>
                         </div>
                     )}
