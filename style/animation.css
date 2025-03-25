@@ -1,0 +1,20 @@
+/* Define the keyframes for the moveLeftRight animation */
+@keyframes moveLeftRight {
+    0% {
+      transform: translateX(-100%); /* Start from the left */
+    }
+    50% {
+      transform: translateX(100%); /* Move to the right */
+    }
+    100% {
+      transform: translateX(-100%); /* Return to the left */
+    }
+  }
+  
+  /* Register the animation within the 'utilities' layer */
+  @layer utilities {
+    .animate-moveLeftRight {
+      animation: moveLeftRight 4s linear infinite;
+    }
+  }
+  

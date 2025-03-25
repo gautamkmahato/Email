@@ -1,8 +1,10 @@
 'use client'
 
-import Head from 'next/head';
+
 import { useState } from 'react';
 import Navbar from './_components/Navbar';
+import '../style/animation.css';
+
 
 export default function Home() {
   const [email, setEmail] = useState('');
@@ -26,21 +28,21 @@ export default function Home() {
       <section className="bg-white">
         <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-5xl">
               <span className="block">Create Stunning</span>
-              <span className="block text-indigo-600">Email Templates in Minutes</span>
+              <span className="block text-amber-600">Email Templates in Minutes</span>
             </h1>
-            <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+            <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-lg md:max-w-3xl">
               Drag-and-drop email builder with AI-powered tools to help you design, send, and track professional emails effortlessly.
             </p>
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
               <div className="rounded-md shadow">
-                <a href="#pricing" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                <a href="#pricing" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 md:py-4 md:text-lg md:px-10">
                   Get Started
                 </a>
               </div>
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                <a href="#demo" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                <a href="#demo" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-amber-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
                   Live Demo
                 </a>
               </div>
@@ -50,9 +52,9 @@ export default function Home() {
       </section>
 
       {/* Logo Cloud Section */}
-      <section className="bg-gray-100 py-12">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">
+          <p className="text-center text-lg font-semibold uppercase text-gray-900 tracking-wide">
             Trusted by companies worldwide
           </p>
           <div className="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
@@ -75,23 +77,36 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="w-full flex justify-center items-center animate-moveLeftRight">
+        <div className="relative">
+          {/* Animation container */}
+          <div className="absolute w-full h-full animate-moveLeftRight">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtnvAOajH9gS4C30cRF7rD_voaTAKly2Ntaw&s" // Replace with the actual logo URL
+              alt="Trusted Partner"
+              className="mx-auto"
+            />
+          </div>
+        </div>
+      </div>
+
       {/* Features Section */}
       <section id="features" className="p-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
-            <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Features</h2>
+            <h2 className="text-base text-amber-600 font-semibold tracking-wide uppercase">Features</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Everything you need to create amazing emails
             </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            <p className="mt-4 max-w-2xl text-lg text-gray-500 lg:mx-auto">
               Our platform provides all the tools to design, send, and track your email campaigns.
             </p>
           </div>
 
           <div className="mt-14">
               <div className="mt-10 grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                     </svg>
@@ -105,8 +120,8 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                     </svg>
@@ -120,8 +135,8 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                     </svg>
@@ -138,8 +153,8 @@ export default function Home() {
 
 
               <div className="mt-10 grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
@@ -153,8 +168,8 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                     </svg>
@@ -168,8 +183,8 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -188,8 +203,8 @@ export default function Home() {
 
 
               <div className="mt-10 grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
@@ -203,8 +218,8 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                     </svg>
@@ -218,8 +233,8 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
@@ -236,8 +251,8 @@ export default function Home() {
 
 
               <div className="mt-10 grid grid-cols-1 gap-y-10 gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                     </svg>
@@ -251,8 +266,8 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                     </svg>
@@ -266,8 +281,8 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="group relative border p-6">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <div className="group relative shadow-xl p-6">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-amber-600 text-white">
                     <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
@@ -286,39 +301,32 @@ export default function Home() {
       </section>
 
       {/* Demo Section */}
-      <section id="demo" className="p-16 bg-indigo-700">
+      <section id="demo" className="p-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-12 lg:gap-8">
-            <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-              <h2 className="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
-                <span className="block">See MailCraft in action</span>
-              </h2>
-              <p className="mt-3 text-lg text-indigo-200 sm:mt-5">
-                Watch how easy it is to create beautiful, responsive emails with our drag-and-drop builder and AI-powered tools.
-              </p>
-              <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
-                <div className="mt-5 rounded-md shadow">
-                  <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
-                    Watch Demo Video
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
-              <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
-                <div className="relative block w-full bg-white overflow-hidden rounded-lg">
-                  <div className="aspect-w-16 aspect-h-9">
-                    <div className="w-full h-96 bg-gray-200 flex items-center justify-center">
-                      <svg className="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
+          <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+            <h2 className="text-3xl font-extrabold text-neutral-900 tracking-tight sm:text-4xl">
+              <span className="block text-center">See MailCraft in action</span>
+            </h2>
+            <p className="mt-3 mb-8 text-lg text-center text-amber-600 sm:mt-5">
+              Watch how easy it is to create beautiful, responsive emails with our drag-and-drop builder and AI-powered tools.
+            </p>
+          </div>
+
+          <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+            <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-full"> {/* Increased width */}
+              <div className="relative block w-full bg-white overflow-hidden rounded-lg">
+                <div className="aspect-w-16 aspect-h-9">
+                  <div className="w-full h-96 bg-gray-200 flex items-center justify-center">
+                    <svg className="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -326,7 +334,7 @@ export default function Home() {
       <section className="p-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
-            <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">How it works</h2>
+            <h2 className="text-base text-amber-600 font-semibold tracking-wide uppercase">How it works</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Get started in minutes
             </p>
@@ -466,7 +474,7 @@ export default function Home() {
       <section id="pricing" className="p-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
-            <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Pricing</h2>
+            <h2 className="text-base text-amber-600 font-semibold tracking-wide uppercase">Pricing</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Simple, transparent pricing
             </p>
@@ -507,18 +515,18 @@ export default function Home() {
                     <span>Basic analytics</span>
                   </li>
                 </ul>
-                <button className="mt-8 w-full bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700">
+                <button className="mt-8 w-full bg-amber-600 text-white py-3 rounded-md hover:bg-amber-700">
                   Get Started
                 </button>
               </div>
             </div>
 
             {/* Pro Plan */}
-            <div className="bg-white rounded-lg shadow overflow-hidden border-2 border-indigo-500">
+            <div className="bg-white rounded-lg shadow overflow-hidden border-2 border-amber-500">
               <div className="px-6 py-8">
                 <div className="flex justify-between items-center">
                   <h3 className="text-lg font-medium text-gray-900">Pro</h3>
-                  <span className="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-xs font-semibold">
+                  <span className="bg-indigo-100 text-amber-600 px-3 py-1 rounded-full text-xs font-semibold">
                     Most Popular
                   </span>
                 </div>
@@ -555,7 +563,7 @@ export default function Home() {
                     <span>AI content suggestions</span>
                   </li>
                 </ul>
-                <button className="mt-8 w-full bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700">
+                <button className="mt-8 w-full bg-amber-600 text-white py-3 rounded-md hover:bg-amber-700">
                   Get Started
                 </button>
               </div>
@@ -591,7 +599,7 @@ export default function Home() {
                     <span>Dedicated support</span>
                   </li>
                 </ul>
-                <button className="mt-8 w-full bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700">
+                <button className="mt-8 w-full bg-amber-600 text-white py-3 rounded-md hover:bg-amber-700">
                   Contact Sales
                 </button>
               </div>
