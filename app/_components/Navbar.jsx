@@ -22,15 +22,7 @@ export default function Navbar() {
                         <nav aria-label="Global">
                         <ul className="flex items-center gap-6 text-sm">
                             <li>
-                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> About </a>
-                            </li>
-
-                            <li>
-                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Careers </a>
-                            </li>
-
-                            <li>
-                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> History </a>
+                            <a className="text-gray-500 transition hover:text-gray-500/75" href="/"> Home </a>
                             </li>
 
                             <li>
@@ -38,11 +30,15 @@ export default function Navbar() {
                             </li>
 
                             <li>
-                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Projects </a>
+                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Example </a>
                             </li>
 
                             <li>
-                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Blog </a>
+                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Billing </a>
+                            </li>
+
+                            <li>
+                            <a className="text-gray-500 transition hover:text-gray-500/75" href="#"> Settings </a>
                             </li>
                         </ul>
                         </nav>
