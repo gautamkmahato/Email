@@ -1,7 +1,7 @@
 'use server'
 
-export default async function saveContent(design, description, email_from, user_id) {
-    const inputData = { design, description, email_from, user_id };
+export default async function saveContent(design, system_prompt, prompt, email_from, user_id) {
+    const inputData = { design, system_prompt, prompt, email_from, user_id };
 
     // Determine the base URL
     const baseUrl = typeof window !== 'undefined' ? window.location.origin : process.env.NEXT_PUBLIC_BASE_URL;

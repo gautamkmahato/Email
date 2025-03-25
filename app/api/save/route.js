@@ -10,10 +10,10 @@ const supabase = createClient(
 export async function POST(request) {
   try {
     // Parse the incoming JSON request body
-    const { design, description, email_from, user_id } = await request.json();
+    const { design, system_prompt, prompt, email_from, user_id } = await request.json();
 
     // Validate required fields
-    if (!design || !description || !email_from || !user_id) {
+    if (!design || !system_prompt || !prompt || !email_from || !user_id) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -49,7 +49,8 @@ export async function POST(request) {
       .insert([
         {
           design,
-          description,
+          system_prompt,
+          prompt,
           email_from,
           user_id,
         },

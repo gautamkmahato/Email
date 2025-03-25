@@ -3,6 +3,8 @@
 import { useDragDropLayout } from '@/app/context/DragDropLayoutContext';
 import Elements from '@/layout/Elements';
 import Layouts from '@/layout/Layouts';  // Import the Layout array
+import { ArrowLeft, ChevronLeft } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react';
 
 export default function EditorSidebar() {
@@ -32,7 +34,11 @@ export default function EditorSidebar() {
         <div className='p-4 bg-white'>
             {/* layout Section */}
             <div className=''>
-                <h1 className='mb-4 font-bold text-lg'>Layout</h1>
+                <Link href='/dashboard' className='flex items-center text-sm text-gray-700 hover:text-blue-500 transition-colors'>
+                    <ChevronLeft className='w-5 h-5 text-gray-600 hover:text-blue-500' />
+                    <span>Go back to Dashboard</span>
+                </Link>
+                <h1 className='mb-4  mt-4 font-bold text-lg'>Layout</h1>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>              
                     {/* Map over Layout data array */}
                     {Layouts.map((item, index) => (

@@ -23,7 +23,7 @@ export default function Editor() {
             setLoading(true)
             const result = await fetchContent(tid);
             console.log(result);
-            setEmailTemplate(JSON.parse(result?.design));
+            setEmailTemplate(result?.design);
             setLoading(false);
         }
         getData();
