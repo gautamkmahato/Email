@@ -69,7 +69,7 @@ export default [
             justifyContent: 'center',
             alignItems: 'center',
         }
-    },
+    }, 
     {
         id: 'image-1',
         icon: Image,

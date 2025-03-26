@@ -5,7 +5,14 @@ import { DragDropLayoutProvider } from "./context/DragDropLayoutContext";
 import { EmailTemplateProvider } from "./context/EmailTemplateContext";
 import { SelectedElementProvider } from "./context/SelectedElement";
 import { HtmlContentProvider } from "./context/HtmlContentContext";
-
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 
 
 const geistSans = Geist({
@@ -25,22 +32,25 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ScreenProvider>
-      <DragDropLayoutProvider>
-        <EmailTemplateProvider>
-          <SelectedElementProvider>
-            <HtmlContentProvider>
-              <html lang="en">
-                <body
-                  className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-                >
-                  {children}
-                </body>
-              </html>
-            </HtmlContentProvider>
-          </SelectedElementProvider>
-        </EmailTemplateProvider>
-      </DragDropLayoutProvider>
-    </ScreenProvider>
+    <ClerkProvider>
+      <ScreenProvider>
+        <DragDropLayoutProvider>
+          <EmailTemplateProvider>
+            <SelectedElementProvider>
+              <HtmlContentProvider>
+                <html lang="en">
+                  <body
+                    className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                  >
+                    {children}
+                  </body>
+                </html>
+              </HtmlContentProvider>
+            </SelectedElementProvider>
+          </EmailTemplateProvider>
+        </DragDropLayoutProvider>
+      </ScreenProvider>
+    </ClerkProvider>
+    
   );
 }

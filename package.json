@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.12.10",
     "@google/generative-ai": "^0.24.0",
     "@supabase/supabase-js": "^2.49.3",
     "dedent": "^1.5.3",
