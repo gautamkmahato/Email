@@ -44,7 +44,7 @@ export default function Dashboard() {
                 <div className="flex justify-between items-center mb-8">
                     <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
                     <Link href="/dashboard/create">
-                        <button className="bg-red-800 text-white px-6 py-2 cursor-pointer rounded-lg hover:bg-red-900 transition duration-300 flex items-center">
+                        <button className="bg-amber-600 text-white px-6 py-2 cursor-pointer rounded-lg hover:bg-red-900 transition duration-300 flex items-center">
                             Create New Template
                             <Plus className="ml-2 w-5 h-5" /> {/* Adds margin-left to space out the icon */}
                         </button>

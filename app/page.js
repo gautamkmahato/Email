@@ -51,32 +51,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Logo Cloud Section */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-lg font-semibold uppercase text-gray-900 tracking-wide">
-            Trusted by companies worldwide
-          </p>
-          <div className="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
-            <div className="col-span-1 flex justify-center">
-              <div className="h-12 flex items-center text-gray-400 font-bold text-xl">Acme Inc</div>
-            </div>
-            <div className="col-span-1 flex justify-center">
-              <div className="h-12 flex items-center text-gray-400 font-bold text-xl">Globex</div>
-            </div>
-            <div className="col-span-1 flex justify-center">
-              <div className="h-12 flex items-center text-gray-400 font-bold text-xl">Soylent</div>
-            </div>
-            <div className="col-span-1 flex justify-center">
-              <div className="h-12 flex items-center text-gray-400 font-bold text-xl">Initech</div>
-            </div>
-            <div className="col-span-1 flex justify-center">
-              <div className="h-12 flex items-center text-gray-400 font-bold text-xl">Hooli</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Features Section */}
       <section id="features" className="p-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -314,6 +288,32 @@ export default function Home() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Logo Cloud Section */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-lg font-semibold uppercase text-gray-900 tracking-wide">
+            Trusted by companies worldwide
+          </p>
+          <div className="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
+            <div className="col-span-1 flex justify-center">
+              <div className="h-12 flex items-center text-gray-400 font-bold text-xl">Acme Inc</div>
+            </div>
+            <div className="col-span-1 flex justify-center">
+              <div className="h-12 flex items-center text-gray-400 font-bold text-xl">Globex</div>
+            </div>
+            <div className="col-span-1 flex justify-center">
+              <div className="h-12 flex items-center text-gray-400 font-bold text-xl">Soylent</div>
+            </div>
+            <div className="col-span-1 flex justify-center">
+              <div className="h-12 flex items-center text-gray-400 font-bold text-xl">Initech</div>
+            </div>
+            <div className="col-span-1 flex justify-center">
+              <div className="h-12 flex items-center text-gray-400 font-bold text-xl">Hooli</div>
+            </div>
+          </div>
         </div>
       </section>
 

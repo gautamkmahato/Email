@@ -15,7 +15,7 @@ const Card = ({ imageUrl, prompt, tid }) => {
                 {/* Button */}
                 <a
                     href={`/editor/${tid}`}
-                    className="inline-block bg-red-800 text-white text-center px-4 py-2 rounded-md hover:bg-red-900 transition duration-300"
+                    className="inline-block bg-amber-600 text-white text-center px-4 py-2 rounded-md hover:bg-amber-700 transition duration-300"
                 >
                     View Template
                 </a>
