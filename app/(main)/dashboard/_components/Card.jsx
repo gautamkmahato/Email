@@ -6,10 +6,10 @@ const Card = ({ imageUrl, prompt, tid }) => {
     return (
         <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white">
             {/* Full-width Image */}
-            <img className="w-full h-48 object-cover" src={email} alt="Card Image" />
+            <img className="w-full h-36 object-cover" src={email} alt="Card Image" />
 
             {/* prompt with fixed height and text truncation */}
-            <div className="p-5 h-32 overflow-hidden">
+            <div className="p-5 h-36 overflow-hidden">
                 <p className="text-gray-700 text-base mb-4 line-clamp-3"> {/* line-clamp-3 for limiting the lines to 3 */}
                     {prompt}
                 </p>
