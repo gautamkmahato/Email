@@ -8,8 +8,8 @@ const Card = ({ imageUrl, prompt, tid }) => {
             {/* Full-width Image */}
             <img className="w-full h-48 object-cover" src={email} alt="Card Image" />
 
-            {/* Description */}
-            <div className="p-5">
+            {/* prompt with fixed height */}
+            <div className="p-5 h-32 overflow-auto"> {/* Adjust the height as needed */}
                 <p className="text-gray-700 text-base mb-4">{prompt}</p>
                 
                 {/* Button */}
