@@ -59,7 +59,9 @@ function HeroSection() {
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Button size="lg">Get Started</Button>
+              <Link href="/editor">
+                <Button size="lg">Get Startedd</Button>
+              </Link>
               <Button size="lg" variant="outline">
                 Learn More
               </Button>

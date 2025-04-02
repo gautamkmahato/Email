@@ -41,15 +41,17 @@ import {
                         Home
                       </Link>
                     </li>
-  
-                    <li>
-                      <Link
-                        className="text-gray-500 transition hover:text-gray-500/75"
-                        href="/dashboard"
-                      >
-                        Dashboard
-                      </Link>
-                    </li>
+                    <SignedIn>
+                      <li>
+                        <Link
+                          className="text-gray-500 transition hover:text-gray-500/75"
+                          href="/dashboard"
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+                    </SignedIn>
+                    
   
                     <li>
                       <Link
@@ -63,7 +65,7 @@ import {
                     <li>
                       <Link
                         className="text-gray-500 transition hover:text-gray-500/75"
-                        href="#"
+                        href="#pricing"
                       >
                         Billing
                       </Link>
